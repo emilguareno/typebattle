@@ -30,13 +30,13 @@ class TextArea extends Component {
     render() {
         return (
             <div>
-                <textarea onChange = { this.processInput }
-                className = "form-control"
-                rows = "3"
-                autoComplete = "off"
-                autoCorrect = "off"
-                autoCapitalize = "off"
-                spellCheck = "false" >
+                <textarea onChange={ this.processInput }
+                className="form-control"
+                rows="3"
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="off"
+                spellCheck="false" >
                 </textarea> 
             </div>
         );
