@@ -23,14 +23,8 @@ class TextArea extends Component {
             if (this.lastWordCorrect()) {
                 this.props.onCorrectWord();
             }
-            this.setState({
-                spaces: spaces
-            });
         } else if (spaces < this.props.currentIndex) {
             this.props.onWordDeleted();
-            this.setState({
-                spaces: spaces
-            });
         }
     }
     render() {
