@@ -18,8 +18,11 @@ class App extends Component {
   }
   initText(value){
     this.setState({
-      text: value.val()[1].text.split(' ')
+      text: this.cleanUpText(value.val()[2].text).split(' ') || []
     });
+  }
+  cleanUpText(text){
+    return text.replace(/’/g, '\'');
   }
   increaseWordsIndex(){
     this.setState({
