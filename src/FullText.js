@@ -7,7 +7,9 @@ class FullText extends Component {
       <div className="full-text">
         {this.props.text.map((word, index) => {
           if(index === this.props.currentIndex){
-            return <span key={index} className="current-word">{word} </span>;
+            return <span key={index} className="current">{word} </span>;
+          }else if(index < this.props.currentIndex){
+            return <span key={index} className="completed">{word} </span>;
           }else{
             return <span key={index}>{word} </span>;
           }
