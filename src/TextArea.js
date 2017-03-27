@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-
+import './TextArea.css';
 class TextArea extends Component {
     constructor(props) {
         super(props);
         this.processInput = this.processInput.bind(this);
         this.state = {
-            input: '',
-            spaces: 0
+            input: ''
         };
     }
     calculateSpaces(text) {
