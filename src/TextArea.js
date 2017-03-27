@@ -4,6 +4,9 @@ class TextArea extends Component {
     constructor(props) {
         super(props);
         this.processInput = this.processInput.bind(this);
+        this.preventPaste = this.preventPaste.bind(this);
+        this.checkIfDisabledKey = this.checkIfDisabledKey.bind(this);
+        this.preventSelect = this.preventSelect.bind(this);
         this.state = {
             input: ''
         };
@@ -26,10 +29,28 @@ class TextArea extends Component {
             this.props.onWordDeleted();
         }
     }
+    preventPaste(e){
+        e.preventDefault();
+    }
+    checkIfDisabledKey(e){
+        //left and right keys should be disabled
+        if(e.keyCode === 39 || e.keyCode === 37){
+            e.preventDefault();
+        }
+    }
+    preventSelect(e){
+        const textAreaValue = e.target.value;
+        e.target.value = '';
+        e.target.value = textAreaValue;
+    }
     render() {
         return (
             <div>
-                <textarea onChange={ this.processInput }
+                <textarea 
+                onChange={this.processInput}
+                onPaste={this.preventPaste}
+                onKeyDown={this.checkIfDisabledKey}
+                onSelect={this.preventSelect}
                 className="form-control"
                 rows="3"
                 autoComplete="off"
