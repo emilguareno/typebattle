@@ -9,7 +9,7 @@ class FullText extends Component {
           if(index === this.props.currentIndex){
             return <span key={index} className="current-word">{word} </span>;
           }else{
-            return `${word} `;
+            return <span key={index}>{word} </span>;
           }
         })}
       </div>
