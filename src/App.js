@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import './App.css';
 import FullText from './FullText';
 import TextArea from './TextArea';
 import FirebaseService from './firebase';
