@@ -9,11 +9,8 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      text: [],
-      wordIndex: 0
+      text: []
     };
-    this.increaseWordsIndex = this.increaseWordsIndex.bind(this);
-    this.decreaseWordsIndex = this.decreaseWordsIndex.bind(this);
   }
   initText(value){
     this.setState({
@@ -23,16 +20,6 @@ class App extends Component {
   cleanUpText(text){
     return text.replace(/’/g, '\'');
   }
-  increaseWordsIndex(){
-    this.setState({
-      wordIndex: ++this.state.wordIndex
-    });
-  }
-  decreaseWordsIndex(index){
-    this.setState({
-      wordIndex: --this.state.wordIndex
-    });
-  }
   componentDidMount(){
     this.challenges = FirebaseService.getDatabase().ref('challenges');
     this.challenges.on('value', this.initText.bind(this));
@@ -40,12 +27,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <FullText text={this.state.text} currentIndex={this.state.wordIndex} />
+        <FullText text={this.state.text} currentIndex={this.props.wordIndex} />
         <TextArea 
           text={this.state.text} 
-          onCorrectWord={this.increaseWordsIndex} 
-          onWordDeleted={this.decreaseWordsIndex} 
-          currentIndex={this.state.wordIndex} />
+          onCorrectWord={this.props.onIncrementWord} 
+          onWordDeleted={this.props.onDecrementWord} 
+          currentIndex={this.props.wordIndex} />
       </div>
     );
   }
