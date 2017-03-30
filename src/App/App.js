@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-import FullText from './FullText';
-import TextArea from './TextArea';
-import FirebaseService from './firebase';
+import FullText from '../FullText/FullText';
+import TextArea from '../TextArea/TextArea';
+import FirebaseService from '../firebase';
 
 class App extends Component {
   constructor(){
@@ -68,7 +68,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <div className="me">
+        <div className="user">
           <FullText text={this.state.text} currentIndex={this.props.user.wordIndex} />
           <TextArea 
             text={this.state.text} 

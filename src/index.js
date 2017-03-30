@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
-import AppContainer from './AppContainer';
+import AppContainer from './App/AppContainer';
 import './index.css';
 import FirebaseService from './firebase';
 
@@ -24,8 +24,8 @@ ReactDOM.render(
 );
 
 if (module.hot) {
-  module.hot.accept('./AppContainer', () => {
-    const NextApp = require('./AppContainer').default;
+  module.hot.accept('./App/AppContainer', () => {
+    const NextApp = require('./App/AppContainer').default;
     ReactDOM.render(
       <Provider store={store}>
         <NextApp />
