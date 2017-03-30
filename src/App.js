@@ -58,23 +58,23 @@ class App extends Component {
   }
   incrementMyWord(){
     this.props.onIncrementMyWord();
-    this.userRef.update({wordIndex: this.props.me.wordIndex + 1 });
+    this.userRef.update({wordIndex: this.props.user.wordIndex + 1 });
   }
   decrementMyWord(){
     this.props.onDecrementMyWord();
-    this.userRef.update({wordIndex: this.props.me.wordIndex - 1 });
+    this.userRef.update({wordIndex: this.props.user.wordIndex - 1 });
   }
   render() {
     return (
       <div className="App">
 
         <div className="me">
-          <FullText text={this.state.text} currentIndex={this.props.me.wordIndex} />
+          <FullText text={this.state.text} currentIndex={this.props.user.wordIndex} />
           <TextArea 
             text={this.state.text} 
             onCorrectWord={this.incrementMyWord.bind(this)} 
             onWordDeleted={this.decrementMyWord.bind(this)} 
-            currentIndex={this.props.me.wordIndex} />
+            currentIndex={this.props.user.wordIndex} />
         </div>
         
         <div className="opponent">
