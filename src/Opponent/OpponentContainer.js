@@ -1,22 +1,12 @@
 import { connect } from 'react-redux';
-import App from './App';
+import Opponent from './Opponent';
 
 const mapStateToProps = (state) => {
-  return state;
+  return {opponent: state.opponent};
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onIncrementMyWord: () => {
-      dispatch({
-          type: 'INCREMENT_MY_WORD_INDEX'
-      })
-    },
-    onDecrementMyWord: () => {
-      dispatch({
-          type: 'DECREMENT_MY_WORD_INDEX'
-      })
-    },
     onOpponentIndexUpdate: (wordIndex) => {
         dispatch({
             type: 'SET_OPPONENT_WORD_INDEX',
@@ -26,9 +16,9 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-const AppContainer = connect(
+const OpponentContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(App);
+)(Opponent);
 
-export default AppContainer;
+export default OpponentContainer;

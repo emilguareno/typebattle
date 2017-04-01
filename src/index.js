@@ -4,7 +4,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
 import logger from './middleware/logger';
-import AppContainer from './App/AppContainer';
+import App from './App/App';
 import './index.css';
 import FirebaseService from './firebase';
 
@@ -15,14 +15,14 @@ FirebaseService.initDatabase();
 
 ReactDOM.render(
   <Provider store={store}>
-    <AppContainer />
+    <App />
   </Provider>,
   rootEl
 );
 
 if (module.hot) {
-  module.hot.accept('./App/AppContainer', () => {
-    const NextApp = require('./App/AppContainer').default;
+  module.hot.accept('./App/App', () => {
+    const NextApp = require('./App/App').default;
     ReactDOM.render(
       <Provider store={store}>
         <NextApp />
