@@ -1,18 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
+import logger from './middleware/logger';
 import AppContainer from './App/AppContainer';
 import './index.css';
 import FirebaseService from './firebase';
 
 const rootEl = document.getElementById('root');
-const store = createStore(reducers);
-
-store.subscribe(() =>
-  console.log(store.getState())
-);
+const store = createStore(reducers, applyMiddleware(logger));
 
 FirebaseService.initDatabase();
 
