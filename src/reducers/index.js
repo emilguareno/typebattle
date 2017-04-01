@@ -1,13 +1,8 @@
-const INITIAL_STATE = {
-    wordIndex: 0
-};
-export default (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    case 'INCREMENT_WORD_INDEX':
-        return {...state, wordIndex: state.wordIndex + 1};
-    case 'DECREMENT_WORD_INDEX':
-        return {...state, wordIndex: state.wordIndex - 1};
-    default:
-      return state
-  }
-}
+import { combineReducers } from 'redux'
+import user from './user'
+import opponent from './opponent'
+
+export default combineReducers({
+  user,
+  opponent
+});
