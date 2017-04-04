@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './TextArea.css';
-class TextArea extends Component {
+import { Form, TextArea } from 'semantic-ui-react';
+import './TextBox.css';
+class TextBox extends Component {
     constructor(props) {
         super(props);
         this.processInput = this.processInput.bind(this);
@@ -46,20 +47,21 @@ class TextArea extends Component {
     render() {
         return (
             <div>
-                <textarea 
-                onChange={this.processInput}
-                onPaste={this.preventPaste}
-                onKeyDown={this.checkIfDisabledKey}
-                onSelect={this.preventSelect}
-                className="form-control"
-                rows="3"
-                autoComplete="off"
-                autoCorrect="off"
-                autoCapitalize="off"
-                spellCheck="false" >
-                </textarea> 
+                <Form>
+                    <TextArea 
+                    onChange={this.processInput}
+                    onPaste={this.preventPaste}
+                    onKeyDown={this.checkIfDisabledKey}
+                    onSelect={this.preventSelect}
+                    className="form-control"
+                    rows="3"
+                    autoComplete="off"
+                    autoCorrect="off"
+                    autoCapitalize="off"
+                    spellCheck="false" />
+                </Form>
             </div>
         );
     }
 }
-export default TextArea;
+export default TextBox;

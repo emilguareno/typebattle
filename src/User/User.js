@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FullText from '../FullText/FullText';
-import TextArea from '../TextArea/TextArea';
+import TextBox from '../TextBox/TextBox';
 import './User.css';
 
 class User extends Component {
@@ -16,7 +16,7 @@ class User extends Component {
         return (
             <div className="user">
                 <FullText text={this.props.text} currentIndex={this.props.user.wordIndex} />
-                <TextArea 
+                <TextBox 
                     text={this.props.text} 
                     onCorrectWord={this.incrementUserWord.bind(this)} 
                     onWordDeleted={this.decrementUserWord.bind(this)} 
