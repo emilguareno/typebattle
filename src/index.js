@@ -9,12 +9,6 @@ const rootEl = document.getElementById('root');
 
 FirebaseService.initDatabase();
 
-const NavigationComponent = () => {
-    return(
-        <div>Navigation Component</div>
-    );
-}
-
 ReactDOM.render(
   <Provider store={store}>
     <RootComponents history={history} />
