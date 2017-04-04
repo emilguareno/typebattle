@@ -1,27 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import App from './App/App';
+import RootComponents from './root';
 import './index.css';
 import FirebaseService from './firebase';
-import store from './store';
+import { history, store } from './store';
 const rootEl = document.getElementById('root');
 
 FirebaseService.initDatabase();
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <RootComponents history={history} />
   </Provider>,
   rootEl
 );
 
 if (module.hot) {
-  module.hot.accept('./App/App', () => {
-    const NextApp = require('./App/App').default;
+  module.hot.accept('./root', () => {
+    const NextApp = require('./root').default;
     ReactDOM.render(
       <Provider store={store}>
-        <NextApp />
+        <NextApp history={history} />
       </Provider>,
       rootEl
     );
