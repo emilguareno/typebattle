@@ -1,7 +1,7 @@
 import React from 'react';
 import App from './App/App';
 import createHistory from 'history/createBrowserHistory';
-import { Route, Link } from 'react-router';
+import { Route } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
 
 const history = createHistory();
