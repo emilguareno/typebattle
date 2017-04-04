@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
 import UserContainer from '../User/UserContainer';
 import OpponentContainer from '../Opponent/OpponentContainer';
 import FirebaseService from '../firebase';
 import { Link } from 'react-router-dom';
+import './App.css';
 
 class App extends Component {
   constructor(){
