@@ -4,14 +4,20 @@ import { Provider } from 'react-redux';
 import RootComponents from './root';
 import './index.css';
 import FirebaseService from './firebase';
-import store from './store';
+import { history, store } from './store';
 const rootEl = document.getElementById('root');
 
 FirebaseService.initDatabase();
 
+const NavigationComponent = () => {
+    return(
+        <div>Navigation Component</div>
+    );
+}
+
 ReactDOM.render(
   <Provider store={store}>
-    <RootComponents />
+    <RootComponents history={history} />
   </Provider>,
   rootEl
 );
@@ -21,7 +27,7 @@ if (module.hot) {
     const NextApp = require('./root').default;
     ReactDOM.render(
       <Provider store={store}>
-        <NextApp />
+        <NextApp history={history} />
       </Provider>,
       rootEl
     );
