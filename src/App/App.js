@@ -4,6 +4,7 @@ import './App.css';
 import UserContainer from '../User/UserContainer';
 import OpponentContainer from '../Opponent/OpponentContainer';
 import FirebaseService from '../firebase';
+import { Link } from 'react-router-dom';
 
 class App extends Component {
   constructor(){
@@ -55,6 +56,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Link to="/test">Test link</Link>
         <UserContainer text={this.state.text} userRef={this.userRef} />
         <OpponentContainer text={this.state.text} opponentRef={this.opponentRef} />
       </div>
