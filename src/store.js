@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import reducers from './reducers';
-import logger from './middleware/logger';
+import logger from 'redux-logger';
 import { routerMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 
