@@ -29,13 +29,6 @@ export default (state = INITIAL_STATE, action) => {
       });
       return newState;
     }
-    case ActionTypes.OpponentIndexChanged: {
-      const newState = Object.assign({}, state);
-      newState.guests = newState.guests || [];
-      newState.guests = newState.guests.slice();
-      newState.guests.push(action.guest);
-      return newState;
-    }
     default:
       return state;
   }
