@@ -14,6 +14,10 @@ class App extends Component {
             <span>loading...</span>)
         : 
         (
+        <Header />
+        {this.props.inProgress === true ? (
+            <span>loading...</span>
+          ) : (
           <div>
             <Link to="/test">Test link</Link>
             <UserContainer text={this.props.text} />
@@ -21,6 +25,7 @@ class App extends Component {
           </div>
         )
         }
+        )}
       </div>
     );
   }
