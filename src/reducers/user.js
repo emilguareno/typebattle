@@ -19,6 +19,7 @@ export default (state = INITIAL_STATE, action) => {
     case ActionTypes.AuthChanged: {
         const { user } = action;
         return {
+            ...state,
             auth: user
         };
     }
