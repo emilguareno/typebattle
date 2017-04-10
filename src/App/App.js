@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from '../Header/Header';
 import UserContainer from '../User/UserContainer';
 import OpponentContainer from '../Opponent/OpponentContainer';
 import { Link } from 'react-router-dom';
@@ -8,12 +9,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.props.inProgress === true 
-        ?
-        (
-            <span>loading...</span>)
-        : 
-        (
         <Header />
         {this.props.inProgress === true ? (
             <span>loading...</span>
@@ -23,8 +18,6 @@ class App extends Component {
             <UserContainer text={this.props.text} />
             <OpponentContainer text={this.props.text} />
           </div>
-        )
-        }
         )}
       </div>
     );

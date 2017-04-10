@@ -1,7 +1,7 @@
 import ActionTypes from '../constants/actionTypes';
 import database from '../firebase';
 
-export function getText() {
+export default function getText() {
   return dispatch => {
     dispatch(getTextRequestedAction());
     return database.ref('challenges').once('value', snap => {
