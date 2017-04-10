@@ -2,13 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import RootComponents from './root';
-import FirebaseService from './firebase';
 import { history, store } from './store';
 const rootEl = document.getElementById('root');
 import 'semantic-ui-css/semantic.css';
 import './index.css';
-
-FirebaseService.initDatabase();
 
 ReactDOM.render(
   <Provider store={store}>
