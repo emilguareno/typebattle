@@ -1,28 +1,16 @@
-import ActionTypes from '../constants/actionTypes';
-
 const INITIAL_STATE = {
-    wordIndex: 0,
-    auth: {}
+    wordIndex: 0
 };
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case ActionTypes.IncrementUserWordIndex: {
+    case 'INCREMENT_USER_WORD_INDEX':
         return {
             wordIndex: state.wordIndex + 1
         };
-    }
-    case ActionTypes.DecrementUserWordIndex: {
+    case 'DECREMENT_USER_WORD_INDEX':
         return {
             wordIndex: state.wordIndex - 1
         };
-    }
-    case ActionTypes.AuthChanged: {
-        const { user } = action;
-        return {
-            ...state,
-            auth: user
-        };
-    }
     default:
       return state;
   }

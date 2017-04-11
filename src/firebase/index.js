@@ -1,13 +1,12 @@
-import firebase from 'firebase';
+import * as firebase from 'firebase';
 import CONFIG from './config.json';
-firebase.initializeApp(CONFIG);
-const database = firebase.database();
+class FirebaseService {
+    initDatabase(){
+        firebase.initializeApp(CONFIG);
+    }
+    getDatabase(){
+        return firebase.database();
+    }
+}
 
-export default database;
-export const auth = firebase.auth();
-export const providers = {
-    google: new firebase.auth.GoogleAuthProvider(),
-    facebook: new firebase.auth.FacebookAuthProvider(),
-    twitter: new firebase.auth.TwitterAuthProvider(),
-    github: new firebase.auth.GithubAuthProvider()
-};
+export default (new FirebaseService());
