@@ -1,10 +1,10 @@
-import getBattle from './getBattle';
-import watchAuth from './watchAuth';
-import { incrementUserWord, decrementUserWord } from './userWordIndex';
+import getBattleActions from './getBattleActions';
+import watchAuthActions from './watchAuthActions';
+import { incrementUserWord, decrementUserWord } from './userWordIndexActions';
 
 export {
-    getBattle,
-    watchAuth,
+    getBattleActions,
+    watchAuthActions,
     incrementUserWord,
     decrementUserWord
 }
