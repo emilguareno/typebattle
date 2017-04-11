@@ -2,7 +2,7 @@ import ActionTypes from '../constants/actionTypes';
 
 const INITIAL_STATE = {
     wordIndex: 0,
-    auth: {}
+    auth: null
 };
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
