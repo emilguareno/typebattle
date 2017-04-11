@@ -21,7 +21,7 @@ function onStateChange() {
     if (typeof previousValue !== 'undefined' && previousValue !== currentValue) {
         const state = store.getState();
         const userId = state.user.auth.uid;
-        database.ref(`battles/${state.battle.id}/users/${userId}`).update({wordIndex: currentValue });
+        database.ref(`battles/${state.battle.id}/users/${userId}`).update({id: userId, wordIndex: currentValue });
     }
 }
 

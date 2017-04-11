@@ -4,9 +4,7 @@ import User from './User';
 
 const mapStateToProps = (state) => {
     return {
-        inProgress: state.battle.inProgress,
-        user: state.user,
-        round: state.battle.rounds[state.battle.currentRound]
+        user: state.user
     };
 };
 
