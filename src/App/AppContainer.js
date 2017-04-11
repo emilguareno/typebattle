@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getText, watchAuth } from '../actions';
+import { getBattle, watchAuth } from '../actions';
 import App from './App';
 
 function mapStateToProps(state) {
@@ -9,7 +9,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  dispatch(getText());
+  dispatch(getBattle());
   watchAuth(dispatch);
   return {};
 }

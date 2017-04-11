@@ -1,32 +1,36 @@
 import ActionTypes from '../constants/actionTypes';
 const INITIAL_STATE = {
     inProgress: null,
+    currentRound: 1,
     error: '',
     success: '',
-    text: []
+    rounds: [],
+    users: {}
 }
 export default (state = INITIAL_STATE, action) => {
   switch(action.type) {
-    case ActionTypes.GetTextRequested: {
-      return Object.assign({}, state, {
+    case ActionTypes.GetBattleRequested: {
+      return {
+        ...state,
         inProgress: true,
         error: '',
         success: ''
-      });
+      };
     }
-    case ActionTypes.GetTextRejected: {
-      return Object.assign({}, state, {
+    case ActionTypes.GetBattleRejected: {
+      return {
+        ...state,
         inProgress: false,
         error: 'Error in getting text.',
-      });
+      };
     }
-    case ActionTypes.GetTextFulfilled: {
-      const { text } = action;
-      const newState = Object.assign({}, state, {
+    case ActionTypes.GetBattleFulfilled: {
+      const newState = {
+        ...state,
         inProgress: false,
         success: 'Got text.',
-        text
-      });
+        ...action.battle
+      };
       return newState;
     }
     default:

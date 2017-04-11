@@ -1,7 +1,10 @@
-import getText from './getText';
+import getBattle from './getBattle';
 import watchAuth from './watchAuth';
+import { incrementUserWord, decrementUserWord } from './userWordIndex';
 
 export {
-    getText,
-    watchAuth
+    getBattle,
+    watchAuth,
+    incrementUserWord,
+    decrementUserWord
 }

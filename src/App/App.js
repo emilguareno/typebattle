@@ -10,14 +10,14 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        {this.props.inProgress === true ? (
-            <span>loading...</span>
-          ) : (
+        {this.props.inProgress === false ? (
           <div>
             <Link to="/test">Test link</Link>
-            <UserContainer text={this.props.text} />
-            <OpponentContainer text={this.props.text} />
+            <UserContainer />
+            {/*<OpponentContainer />*/}
           </div>
+          ) : (
+            <span>loading...</span>
         )}
       </div>
     );

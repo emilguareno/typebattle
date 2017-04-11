@@ -1,28 +1,29 @@
 import { connect } from 'react-redux';
+import { incrementUserWord, decrementUserWord } from '../actions'
 import User from './User';
 
 const mapStateToProps = (state) => {
-  return {user: state.user};
+    return {
+        inProgress: state.battle.inProgress,
+        user: state.user,
+        round: state.battle.rounds[state.battle.currentRound]
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    onIncrementUserWord: () => {
-      dispatch({
-          type: 'INCREMENT_USER_WORD_INDEX'
-      })
-    },
-    onDecrementUserWord: () => {
-      dispatch({
-          type: 'DECREMENT_USER_WORD_INDEX'
-      })
+    return {
+        onIncrementUserWord: () => {
+            incrementUserWord(dispatch);
+        },
+        onDecrementUserWord: () => {
+            decrementUserWord(dispatch);
+        }
     }
-  }
 };
 
 const UserContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(User);
 
 export default UserContainer;
