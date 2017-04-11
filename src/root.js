@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import AppContainer from './App/AppContainer';
 import { Route } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
+import AppContainer from './App/AppContainer';
+import Header from './Header/Header';
 
 const TestComponent = () => {
     return(
@@ -14,6 +15,7 @@ class RootComponents extends Component{
         return (
             <ConnectedRouter history={this.props.history}>
                 <div>
+                    <Header />
                     <Route exact path="/" component={AppContainer}/>
                     <Route path="/test" component={TestComponent}/>
                 </div>
