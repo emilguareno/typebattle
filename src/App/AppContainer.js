@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { firebaseConnect, pathToJS, dataToJS } from 'react-redux-firebase';
+import { firebaseConnect, pathToJS, dataToJS, getFirebase } from 'react-redux-firebase';
 import App from './App';
 
 const battlePath = 'battles/1';
@@ -23,10 +23,25 @@ function getCurrentRound(battle) {
     };
 }
 
+//Temporary function until battles are being created properly
+//TODO: remove this
+function createUserIfNotInDb(battle, auth){
+    const { uid } = auth;
+    if(!battle.users[uid]){
+        const firebase = getFirebase();
+        firebase.update(`${battlePath}/users/${uid}`, {
+            connected: false,
+            id: uid,
+            wordIndex: 0
+        });
+    }
+}
+
 export default connect(({ firebase }) => {
     const battle = dataToJS(firebase, battlePath);
     const auth = pathToJS(firebase, 'auth');
     if(battle){
+        createUserIfNotInDb(battle, auth);
         return {
             battle,
             round: getCurrentRound(battle),
