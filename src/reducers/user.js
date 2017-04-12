@@ -18,13 +18,6 @@ export default (state = INITIAL_STATE, action) => {
             wordIndex: state.wordIndex - 1
         };
     }
-    case ActionTypes.AuthChanged: {
-        const { user } = action;
-        return {
-            ...state,
-            auth: user
-        };
-    }
     default:
       return state;
   }

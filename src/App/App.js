@@ -6,9 +6,10 @@ import './App.css';
 
 class App extends Component {
   render() {
+    console.log(this.props)
     return (
       <div className="App">
-        {this.props.inProgress === false && this.props.auth ? (
+        {this.props.battle ? (
             <div>
               <Link to="/test">Test link</Link>
               <UserContainer round={this.props.round} />
@@ -16,7 +17,7 @@ class App extends Component {
                 return <Opponent key={opponent.id} round={this.props.round} opponent={opponent}/>
               })}
             </div>
-          ) : (
+            ) : (
             <span>loading...</span>
         )}
       </div>

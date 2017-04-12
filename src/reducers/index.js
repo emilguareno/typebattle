@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import user from './user';
-import battle from './battle';
-import { routerReducer } from 'react-router-redux'
+import { routerReducer } from 'react-router-redux';
+import { firebaseStateReducer } from 'react-redux-firebase';
 
 export default combineReducers({
   user,
-  battle,
-  router: routerReducer
+  router: routerReducer,
+  firebase: firebaseStateReducer
 });

@@ -1,25 +1,15 @@
 import { connect } from 'react-redux';
-import { auth, providers } from '../firebase';
+import { firebaseConnect, pathToJS } from 'react-redux-firebase';
 import Nav from './Nav';
 
-function mapStateToProps(state) {
-  return {
-    auth: state.user.auth
-  };
-}
-
-function mapFirebaseToProps() {
+function mapStateToProps({firebase}) {
     return {
-        onSignInClicked: () =>{
-            const provider = providers.google;
-            auth.signInWithPopup(provider);
-        },
-        onSignOutClicked: () =>{
-            auth.signOut();
-        }
-    }
+        auth: pathToJS(firebase, 'auth')
+    };
 }
 
-const Header = connect(mapStateToProps, mapFirebaseToProps)(Nav);
+const fbWrapper = firebaseConnect()(Nav);
+
+const Header = connect(mapStateToProps)(fbWrapper);
 
 export default Header;
