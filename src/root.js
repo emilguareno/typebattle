@@ -21,13 +21,13 @@ const UserIsAuthenticated = UserAuthWrapper({
 });
 
 const UserIsNotAuthenticated = UserAuthWrapper({
-  wrapperDisplayName: 'UserIsNotAuthenticated',
-  allowRedirectBack: false,
-  failureRedirectPath: '/',
-  authSelector: ({ firebase }) => pathToJS(firebase, 'auth'),
-  authenticatingSelector: ({ firebase }) => pathToJS(firebase, 'isInitializing') !== true,
-  predicate: auth => auth === null,
-  redirectAction: routerActions.replace
+    wrapperDisplayName: 'UserIsNotAuthenticated',
+    allowRedirectBack: false,
+    failureRedirectPath: '/',
+    authSelector: ({ firebase }) => pathToJS(firebase, 'auth'),
+    authenticatingSelector: ({ firebase }) => pathToJS(firebase, 'isInitializing') === true,
+    predicate: auth => auth === null,
+    redirectAction: routerActions.replace
 })
 
 class RootComponents extends Component{
