@@ -6,13 +6,12 @@ import './App.css';
 
 class App extends Component {
   render() {
-    console.log(this.props)
     return (
       <div className="App">
         {this.props.battle ? (
             <div>
               <Link to="/test">Test link</Link>
-              <UserContainer round={this.props.round} />
+              <UserContainer {...this.props} />
               {this.props.opponents.map((opponent) => {
                 return <Opponent key={opponent.id} round={this.props.round} opponent={opponent}/>
               })}
