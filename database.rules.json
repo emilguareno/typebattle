@@ -1,6 +1,15 @@
 {
   "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null"
+    "battles": {
+      "$battleId": {
+        ".read": "auth != null",
+        "users": {
+          	"$uid": {
+            ".read": "auth != null",
+          	".write": "$uid === auth.uid"    
+          }
+        }
+      }
+    }
   }
 }

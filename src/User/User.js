@@ -6,18 +6,16 @@ import './User.css';
 class User extends Component {
     incrementUserWord(){
         this.props.onIncrementUserWord();
-        this.props.userRef.update({wordIndex: this.props.user.wordIndex + 1 });
     }
     decrementUserWord(){
         this.props.onDecrementUserWord();
-        this.props.userRef.update({wordIndex: this.props.user.wordIndex - 1 });
     }
     render() {
         return (
             <div className="user">
-                <FullText text={this.props.text} currentIndex={this.props.user.wordIndex} />
+                <FullText text={this.props.round.text} currentIndex={this.props.user.wordIndex} />
                 <TextBox 
-                    text={this.props.text} 
+                    text={this.props.round.text} 
                     onCorrectWord={this.incrementUserWord.bind(this)} 
                     onWordDeleted={this.decrementUserWord.bind(this)} 
                     currentIndex={this.props.user.wordIndex} />
