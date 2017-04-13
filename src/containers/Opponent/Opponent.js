@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FullText from '../FullText/FullText';
+import FullText from '../../components/FullText/FullText';
 import './Opponent.css';
 
 class Opponent extends Component {

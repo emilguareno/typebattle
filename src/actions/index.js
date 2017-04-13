@@ -1,4 +1,4 @@
-import { incrementUserWord, decrementUserWord } from './userWordIndexActions';
+import { incrementUserWord, decrementUserWord } from './user';
 
 export {
     incrementUserWord,

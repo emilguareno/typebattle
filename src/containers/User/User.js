@@ -1,8 +1,32 @@
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getFirebase } from 'react-redux-firebase';
-import { store } from '../store';
-import { incrementUserWord, decrementUserWord } from '../actions';
-import User from './User';
+import { store } from '../../store';
+import { incrementUserWord, decrementUserWord } from '../../actions';
+import FullText from '../../components/FullText/FullText';
+import TextBox from '../../components/TextBox/TextBox';
+import './User.css';
+
+class User extends Component {
+    incrementUserWord(){
+        this.props.onIncrementUserWord();
+    }
+    decrementUserWord(){
+        this.props.onDecrementUserWord();
+    }
+    render() {
+        return (
+            <div className="user">
+                <FullText text={this.props.round.text} currentIndex={this.props.user.wordIndex} />
+                <TextBox 
+                    text={this.props.round.text} 
+                    onCorrectWord={this.incrementUserWord.bind(this)} 
+                    onWordDeleted={this.decrementUserWord.bind(this)} 
+                    currentIndex={this.props.user.wordIndex} />
+            </div>
+        );
+    }
+}
 
 
 const mapStateToProps = (state, ownProps) => {
