@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import { Button, Menu } from 'semantic-ui-react'
+import { Button, Menu } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import { createUserIfNotInUsers } from '../../helpers/auth';
 
 class Nav extends Component {
   onSignInClicked(){
       this.props.firebase.login({
           provider: 'google',
           type: 'popup'
+      }).then((authData) => {
+        createUserIfNotInUsers(authData.user);
       });
   }
   onSignOutClicked(){
@@ -14,7 +18,9 @@ class Nav extends Component {
   render() {
     return (
       <Menu size='large'>
-        <Menu.Item name='home' />
+        <Menu.Item name='home'>
+            <Link to="/">Home</Link>
+        </Menu.Item>
         <Menu.Item name='battles' />
 
         <Menu.Menu position='right'>
