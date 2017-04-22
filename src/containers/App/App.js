@@ -1,50 +1,43 @@
 import React, { Component } from 'react';
-import { firebaseConnect, pathToJS, dataToJS, getFirebase } from 'react-redux-firebase';
+import { firebaseConnect, pathToJS, populatedDataToJS } from 'react-redux-firebase';
+import { isObject, toArray } from 'lodash';
 import { connect } from 'react-redux';
-import User from '../User/User';
-import { Link } from 'react-router-dom';
-import Opponent from '../Opponent/Opponent';
-import { getOpponents, getCurrentRound, createUserIfNotInDb } from '../../helpers/battle';
+import BattleList from '../../components/BattleList/BattleList';
 import './App.css';
 
+let battlesPath;
+
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        {this.props.battle ? (
-            <div>
-              <Link to="/test">Test link</Link>
-              <User {...this.props} />
-              {this.props.opponents.map((opponent) => {
-                return <Opponent key={opponent.id} round={this.props.round} opponent={opponent}/>
-              })}
-            </div>
-            ) : (
-            <span>loading...</span>
-        )}
-      </div>
-    );
-  }
+    render() {
+        return (
+          <div className="App">
+              {this.props.battles &&
+                <BattleList battles={this.props.battles} />
+              }
+          </div>
+        );
+    }
 }
 
-const battlePath = 'battles/1';
+function parsePopulatedData(obj){
+    return toArray(obj && obj.battles).filter(isObject);
+}
 
-const firebaseWrapper = firebaseConnect([
-    { path: battlePath }
-])(App);
+const populates = [
+  { child: 'battles', root: 'battles' }
+]
+
+const firebaseWrapper = firebaseConnect(
+  () => ([
+    { path: battlesPath, populates }
+]))(App);
 
 export default connect(({ firebase }) => {
-    const battle = dataToJS(firebase, battlePath);
     const auth = pathToJS(firebase, 'auth');
-    if(battle){
-        const firebase = getFirebase();
-        createUserIfNotInDb(battlePath, battle, auth, firebase);
-        return {
-            battle,
-            round: getCurrentRound(battle),
-            opponents: getOpponents(battle, auth),
-            auth
-        }
+    battlesPath = `users/${auth.uid}`;
+    const populatedBattles = populatedDataToJS(firebase, battlesPath, populates);
+    const battles = parsePopulatedData(populatedBattles);
+    return {
+        battles: battles
     }
-    return {};
 })(firebaseWrapper)
