@@ -38,7 +38,7 @@ export function searchUsers(query) {
 	};
 }
 
-export function createBattle(name, opponents, auth){
+export function createBattle(name, opponents){
 	return (dispatch, getState, getFirebase) => {
 		const { firebase } = store.getState();
 		const { uid } = pathToJS(firebase, 'auth');
@@ -51,6 +51,6 @@ export function createBattle(name, opponents, auth){
 		firebaseRef.set(`battles/${key}`, schema);
 		allUsers.forEach(userId => {
 			firebaseRef.set(`users/${userId}/battles/${key}`, true);
-		})
+		});
 	};
 }

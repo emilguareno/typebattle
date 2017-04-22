@@ -2,14 +2,14 @@ import { connect } from 'react-redux';
 import { searchUsers, resetUserSearch, createBattle } from '../../actions';
 import CreateBattleModal from './CreateBattleModal';
 
-const mapStateToProps = ({ battle }) => {
+function mapStateToProps({ battle }){
     return {
         results: battle.userSearchResults,
         isLoading: battle.isLoading
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+function mapDispatchToProps(dispatch) {
     return {
         onSearchChange: (event, data) => {
             dispatch(resetUserSearch());
