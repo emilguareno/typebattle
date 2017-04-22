@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import CreateBattle from '../../containers/CreateBattle/CreateBattle';
+import CreateBattle from '../../modals/CreateBattle/CreateBattle';
 
 class BattleList extends Component {
   render() {
