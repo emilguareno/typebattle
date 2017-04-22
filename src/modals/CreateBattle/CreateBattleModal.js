@@ -3,7 +3,7 @@ import { Modal } from 'semantic-ui-react';
 import { Button } from 'semantic-ui-react';
 import CreateBattleForm from './CreateBattleForm';
 
-function CreateBattleModal (props){
+function CreateBattleModal(props){
     return (
         <Modal trigger={<Button>Create Battle</Button>}>
           <Modal.Header>Create a new battle</Modal.Header>
