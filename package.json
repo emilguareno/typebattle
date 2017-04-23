@@ -2,6 +2,7 @@
   "name": "typebattle",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://emilguareno.github.io/typebattle",
   "dependencies": {
     "firebase": "^3.7.0",
     "lodash": "^4.17.4",
@@ -21,10 +22,13 @@
     "semantic-ui-react": "^0.67.2"
   },
   "devDependencies": {
+    "gh-pages": "^0.12.0",
     "react-scripts": "0.9.4",
     "redux-devtools": "^3.3.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "NODE_PATH=./src react-scripts start",
     "build": "NODE_PATH=./src react-scripts build",
     "test": "NODE_PATH=./src react-scripts test --env=jsdom",
