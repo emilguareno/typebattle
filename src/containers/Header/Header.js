@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { firebaseConnect, pathToJS } from 'react-redux-firebase';
-import Nav from '../../components/Nav/Nav';
+import Nav from 'components/Nav/Nav';
 
 function mapStateToProps({firebase}) {
     return {

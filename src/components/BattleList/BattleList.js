@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import CreateBattle from '../../modals/CreateBattle/CreateBattle';
+import CreateBattle from 'modals/CreateBattle/CreateBattle';
 
 class BattleList extends Component {
   render() {

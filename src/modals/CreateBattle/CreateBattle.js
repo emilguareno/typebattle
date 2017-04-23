@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { searchUsers, resetUserSearch, createBattle } from '../../actions';
+import { searchUsers, resetUserSearch, createBattle } from 'actions';
 import CreateBattleModal from './CreateBattleModal';
 
 function mapStateToProps({ battle }){

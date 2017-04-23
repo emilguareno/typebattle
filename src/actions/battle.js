@@ -1,7 +1,7 @@
-import ActionTypes from '../constants/actionTypes';
+import ActionTypes from 'constants/actionTypes';
 import { pathToJS } from 'react-redux-firebase';
-import { getBattleSchema } from '../schemas/battle';
-import { store } from '../store';
+import { getBattleSchema } from 'schemas/battle';
+import { store } from 'store';
 
 export function resetUserSearch(){
 	return (dispatch) => {

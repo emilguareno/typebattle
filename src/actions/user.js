@@ -1,4 +1,4 @@
-import ActionTypes from '../constants/actionTypes';
+import ActionTypes from 'constants/actionTypes';
 
 export function incrementUserWord(dispatch) {
     return { type: ActionTypes.IncrementUserWordIndex };

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { roundPropTypes, userPropTypes } from '../../helpers/propTypes';
-import FullText from '../../components/FullText/FullText';
+import { roundPropTypes, userPropTypes } from 'helpers/propTypes';
+import FullText from 'components/FullText/FullText';
 import './Opponent.css';
 
 class Opponent extends Component {

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { firebaseConnect, pathToJS, populatedDataToJS } from 'react-redux-firebase';
 import { isObject, toArray } from 'lodash';
 import { connect } from 'react-redux';
-import { battlePropTypes } from '../../helpers/propTypes';
-import BattleList from '../../components/BattleList/BattleList';
+import { battlePropTypes } from 'helpers/propTypes';
+import BattleList from 'components/BattleList/BattleList';
 import './App.css';
 
 let battlesPath;

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { firebaseConnect, pathToJS, dataToJS } from 'react-redux-firebase';
-import { battlePropTypes, roundPropTypes } from '../../helpers/propTypes';
-import { getOpponents, getCurrentRound } from '../../helpers/battle';
+import { battlePropTypes, roundPropTypes } from 'helpers/propTypes';
+import { getOpponents, getCurrentRound } from 'helpers/battle';
 import { connect } from 'react-redux';
-import User from '../User/User';
+import User from 'containers/User/User';
 import { Link } from 'react-router-dom';
-import Opponent from '../Opponent/Opponent';
+import Opponent from 'containers/Opponent/Opponent';
 
 let battlePath;
 

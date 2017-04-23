@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getFirebase } from 'react-redux-firebase';
-import { battlePropTypes, roundPropTypes, userPropTypes } from '../../helpers/propTypes';
-import { store } from '../../store';
-import { incrementUserWord, decrementUserWord } from '../../actions';
-import FullText from '../../components/FullText/FullText';
-import TextBox from '../../components/TextBox/TextBox';
+import { battlePropTypes, roundPropTypes, userPropTypes } from 'helpers/propTypes';
+import { store } from 'store';
+import { incrementUserWord, decrementUserWord } from 'actions';
+import FullText from 'components/FullText/FullText';
+import TextBox from 'components/TextBox/TextBox';
 import './User.css';
 
 class User extends Component {
