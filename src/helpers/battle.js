@@ -12,16 +12,3 @@ export function getCurrentRound(battle) {
         text: round.text.split(' ')
     };
 }
-
-//Temporary function until battles are being created properly
-//TODO: remove this
-export function createUserIfNotInDb(battlePath, battle, auth, firebase){
-    const { uid } = auth;
-    if(!battle.users[uid]){
-        firebase.update(`${battlePath}/users/${uid}`, {
-            connected: false,
-            id: uid,
-            wordIndex: 0
-        });
-    }
-}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { firebaseConnect, pathToJS, dataToJS, getFirebase } from 'react-redux-firebase';
-import { getOpponents, getCurrentRound, createUserIfNotInDb } from '../../helpers/battle';
+import { firebaseConnect, pathToJS, dataToJS } from 'react-redux-firebase';
+import { getOpponents, getCurrentRound } from '../../helpers/battle';
 import { connect } from 'react-redux';
 import User from '../User/User';
 import { Link } from 'react-router-dom';
@@ -38,8 +38,6 @@ export default connect(({ firebase }, ownProps) => {
     const battle = dataToJS(firebase, battlePath);
     const auth = pathToJS(firebase, 'auth');
     if(battle){
-        const firebase = getFirebase();
-        createUserIfNotInDb(battlePath, battle, auth, firebase);
         return {
             battle,
             round: getCurrentRound(battle),
