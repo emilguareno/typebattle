@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import CreateBattle from '../../modals/CreateBattle/CreateBattle';
 
@@ -17,6 +18,13 @@ class BattleList extends Component {
       </div>
     );
   }
+}
+
+BattleList.propTypes = {
+    battles: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), 
+        name: PropTypes.string
+    })).isRequired
 }
 
 export default BattleList;

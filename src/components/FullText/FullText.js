@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './FullText.css';
 
 class FullText extends Component {
@@ -18,5 +19,10 @@ class FullText extends Component {
     );
   }
 }
+
+FullText.propTypes = {
+    text: PropTypes.arrayOf(PropTypes.string).isRequired,
+    currentIndex: PropTypes.number.isRequired
+};
 
 export default FullText;

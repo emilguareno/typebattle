@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Button, Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { createUserIfNotInUsers } from '../../helpers/auth';
@@ -40,5 +41,10 @@ class Nav extends Component {
     )
   }
 }
+
+Nav.propTypes = {
+    auth: PropTypes.object,
+    firebase: PropTypes.object.isRequired
+};
 
 export default Nav;

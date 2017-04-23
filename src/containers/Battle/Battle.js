@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { firebaseConnect, pathToJS, dataToJS } from 'react-redux-firebase';
+import { battlePropTypes, roundPropTypes } from '../../helpers/propTypes';
 import { getOpponents, getCurrentRound } from '../../helpers/battle';
 import { connect } from 'react-redux';
 import User from '../User/User';
@@ -15,7 +16,7 @@ class Battle extends Component {
 			{this.props.battle ? (
 				<div>
 				<Link to="/test">Test link</Link>
-				<User {...this.props} />
+				<User round={this.props.round} battle={this.props.battle} auth={this.props.auth} />
 				{this.props.opponents.map((opponent) => {
 					return <Opponent key={opponent.id} round={this.props.round} opponent={opponent}/>
 				})}
@@ -26,6 +27,11 @@ class Battle extends Component {
 		</div>
 		);
 	}
+}
+
+Battle.propTypes = {
+	battle: battlePropTypes,
+	round: roundPropTypes
 }
 
 const firebaseWrapper = firebaseConnect(
@@ -42,7 +48,7 @@ export default connect(({ firebase }, ownProps) => {
             battle,
             round: getCurrentRound(battle),
             opponents: getOpponents(battle, auth),
-            auth
+			auth
         }
     }
     return {};

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { pathToJS } from 'react-redux-firebase';
 import { connect } from 'react-redux';
 import App from './App';
@@ -15,6 +16,10 @@ class AppContainer extends Component {
         );
     }
 }
+
+AppContainer.propTypes = {
+    auth: PropTypes.object
+};
 
 export default connect(({ firebase }) => {
     return {

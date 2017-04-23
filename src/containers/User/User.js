@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getFirebase } from 'react-redux-firebase';
+import { battlePropTypes, roundPropTypes, userPropTypes } from '../../helpers/propTypes';
 import { store } from '../../store';
 import { incrementUserWord, decrementUserWord } from '../../actions';
 import FullText from '../../components/FullText/FullText';
@@ -28,10 +30,18 @@ class User extends Component {
     }
 }
 
+User.propTypes = {
+    battle: battlePropTypes.isRequired,
+    auth: PropTypes.object.isRequired,
+    onDecrementUserWord: PropTypes.func.isRequired,
+    onIncrementUserWord: PropTypes.func.isRequired,
+    round: roundPropTypes.isRequired,
+    user: userPropTypes.isRequired
+}
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = ({ user }) => {
     return {
-        user: state.user
+        user
     };
 };
 
@@ -48,12 +58,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 };
 
-const UserContainer = connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(User);
-
-export default UserContainer;
 /**
  * 
  * When the user word index increases or decreases, the regular Redux state is used, as we want the 

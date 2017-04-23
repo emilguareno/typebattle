@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { roundPropTypes, userPropTypes } from '../../helpers/propTypes';
 import FullText from '../../components/FullText/FullText';
 import './Opponent.css';
 
@@ -10,6 +11,11 @@ class Opponent extends Component {
             </div>
         );
     }
+}
+
+Opponent.propTypes = {
+    round: roundPropTypes.isRequired,
+    opponent: userPropTypes.isRequired
 }
 
 export default Opponent;
