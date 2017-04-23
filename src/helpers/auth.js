@@ -25,5 +25,7 @@ export function createUserIfNotInUsers (user){
     const { uniqueSet } = getFirebase();
     uniqueSet(`users/${user.uid}`, {
         email: user.email
+    }).catch(reason => {
+        console.log('User is already in database', reason);
     });
 }
