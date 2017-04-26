@@ -1,6 +1,6 @@
 export function getBattleSchema(id, name, users){
 	return {
-		currentRound: 1,
+		currentRound: 0,
 		id,
 		name,
 		rounds: [
