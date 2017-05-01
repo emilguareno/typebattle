@@ -6,9 +6,13 @@ import './Opponent.css';
 class Opponent extends Component {
     render() {
         return (
-            <div className="opponent">
-                <FullText text={this.props.round.text} currentIndex={this.props.opponent.wordIndex} />
-            </div>
+            this.props.opponent.connected ? (
+                <div className="opponent">
+                    <FullText text={this.props.round.text} currentIndex={this.props.opponent.wordIndex} />
+                </div>
+            ) : (
+                <p> User is not online </p>
+            )
         );
     }
 }
