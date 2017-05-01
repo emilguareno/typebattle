@@ -16,9 +16,9 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const createStoreWithFirebase = composeEnhancers(
   reactReduxFirebase(config),
   applyMiddleware(
-    logger, 
     routeMiddleware,
-    thunk.withExtraArgument(getFirebase)
+    thunk.withExtraArgument(getFirebase),
+    logger
   )
 )(createStore);
 
