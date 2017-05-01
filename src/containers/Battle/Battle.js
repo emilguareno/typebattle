@@ -4,6 +4,14 @@ import { Link } from 'react-router-dom';
 import Opponent from 'containers/Opponent/Opponent';
 
 class Battle extends Component {
+	componentWillMount() {
+		const { battle, auth } = this.props;
+		this.props.onUserStatusChanged(battle.id, auth.uid, true);
+	}
+	componentWillUnmount() {
+		const { battle, auth } = this.props;
+		this.props.onUserStatusChanged(battle.id, auth.uid, false);
+	}
 	render() {
 		return (
 			<div className="Battle">

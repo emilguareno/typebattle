@@ -54,3 +54,14 @@ export function createBattle(name, opponents){
 		});
 	};
 }
+
+
+export function changeUserStatus(battleId, userId, connected) {
+    return (dispatch, getState, getFirebase) => {
+		const connectedPath = `battles/${battleId}/users/${userId}/connected`;
+		const firebase = getFirebase();
+		const userBattleRef = firebase.ref(connectedPath);
+		firebase.set(connectedPath, connected);
+		userBattleRef.onDisconnect().set(false);
+	};
+}
