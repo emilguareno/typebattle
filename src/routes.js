@@ -4,7 +4,7 @@ import { ConnectedRouter } from 'react-router-redux';
 import { UserIsAuthenticated, UserIsNotAuthenticated} from './helpers/auth';
 import AppContainer from './containers/App/AppContainer';
 import Header from './containers/Header/Header';
-import Battle from './containers/Battle/Battle';
+import BattleContainer from './containers/Battle/BattleContainer';
 
 const Login = () => {
     return(
@@ -19,7 +19,7 @@ class RootComponents extends Component{
                 <div>
                     <Header />
                     <Route exact path="/" component={UserIsAuthenticated(AppContainer)}/>
-                    <Route path="/battles/:id" component={UserIsAuthenticated(Battle)}/>
+                    <Route path="/battles/:id" component={UserIsAuthenticated(BattleContainer)}/>
                     <Route path="/login" component={UserIsNotAuthenticated(Login)}/>
                 </div>
             </ConnectedRouter>
