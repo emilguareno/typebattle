@@ -4315,7 +4315,7 @@ promise@^7.1.1, promise@7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.0.0, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@~15.5.7:
+prop-types@^15.0.0, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@~15.5.7, prop-types@15.5.8:
   version "15.5.8"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.8.tgz#6b7b2e141083be38c8595aa51fc55775c7199394"
   dependencies:
@@ -4626,12 +4626,13 @@ reduce-function-call@^1.0.1:
   dependencies:
     balanced-match "^0.4.2"
 
-redux-auth-wrapper@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/redux-auth-wrapper/-/redux-auth-wrapper-1.0.0.tgz#9aa16f8934563efe92f684b2ab201b4f01f50381"
+redux-auth-wrapper:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/redux-auth-wrapper/-/redux-auth-wrapper-1.1.0.tgz#ccd4a753fe2134eb93c44f4e5781054577f6244a"
   dependencies:
     hoist-non-react-statics "1.2.0"
     lodash.isempty "4.4.0"
+    prop-types "15.5.8"
 
 redux-devtools-instrument@^1.0.1:
   version "1.8.0"
@@ -4888,20 +4889,21 @@ sax@^1.2.1, sax@~1.2.1:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.2.tgz#fd8631a23bc7826bef5d871bdb87378c95647828"
 
-semantic-ui-css@^2.2.10:
+semantic-ui-css:
   version "2.2.10"
   resolved "https://registry.yarnpkg.com/semantic-ui-css/-/semantic-ui-css-2.2.10.tgz#f8f4470dbeffca0f0f3ff4fb71a35c71e88ad89c"
   dependencies:
     jquery x.*
 
-semantic-ui-react@^0.67.2:
-  version "0.67.2"
-  resolved "https://registry.yarnpkg.com/semantic-ui-react/-/semantic-ui-react-0.67.2.tgz#30c1271239fae724a96117cea087bf3084f8480e"
+semantic-ui-react:
+  version "0.68.2"
+  resolved "https://registry.yarnpkg.com/semantic-ui-react/-/semantic-ui-react-0.68.2.tgz#63f85f55c5c0b6302379c14bee8e18bbd2c04d29"
   dependencies:
     babel-runtime "^6.22.0"
     classnames "^2.1.5"
     debug "^2.6.3"
     lodash "^4.17.2"
+    prop-types "15.5.8"
 
 semver@^5.1.0, semver@^5.3.0, "semver@2 || 3 || 4 || 5":
   version "5.3.0"
