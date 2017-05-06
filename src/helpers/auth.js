@@ -1,7 +1,6 @@
 import { routerActions } from 'react-router-redux';
 import { UserAuthWrapper } from 'redux-auth-wrapper';
 import { pathToJS } from 'react-redux-firebase';
-import { getFirebase } from 'react-redux-firebase';
 
 export const UserIsAuthenticated = UserAuthWrapper({
     wrapperDisplayName: 'UserIsAuthenticated',
@@ -20,12 +19,3 @@ export const UserIsNotAuthenticated = UserAuthWrapper({
     predicate: auth => auth === null,
     redirectAction: routerActions.replace
 });
-
-export function createUserIfNotInUsers (user){
-    const { uniqueSet } = getFirebase();
-    uniqueSet(`users/${user.uid}`, {
-        email: user.email
-    }).catch(reason => {
-        console.log('User is already in database', reason);
-    });
-}

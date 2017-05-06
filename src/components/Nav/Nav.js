@@ -2,15 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { createUserIfNotInUsers } from 'helpers/auth';
 
 class Nav extends Component {
   onSignInClicked(){
       this.props.firebase.login({
           provider: 'google',
           type: 'popup'
-      }).then((authData) => {
-        createUserIfNotInUsers(authData.user);
       });
   }
   onSignOutClicked(){
