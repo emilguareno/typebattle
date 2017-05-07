@@ -6,8 +6,6 @@ import { changeUserStatus } from 'actions/battle';
 import { connect } from 'react-redux';
 import Battle from './Battle';
 
-let battlePath;
-
 class BattleContainer extends Component {
 	render() {
 		return (
@@ -26,12 +24,12 @@ BattleContainer.propTypes = {
 }
 
 const firebaseWrapper = firebaseConnect(
-  () => ([
-    { path: battlePath }
-]))(BattleContainer);
+  ({match}) => {
+      return [{ path: `battles/${match.params.id}` }]
+})(BattleContainer);
 
 function mapStateToProps({ firebase }, ownProps) {
-    battlePath = `battles/${ownProps.match.params.id}`;
+    const battlePath = `battles/${ownProps.match.params.id}`;
     const battle = dataToJS(firebase, battlePath);
     const auth = pathToJS(firebase, 'auth');
     if(battle){
