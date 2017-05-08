@@ -7,14 +7,17 @@ import AppLayout from './components/AppLayout';
 import Login from './components/Login';
 import BattleContainer from './containers/Battle/BattleContainer';
 
+const PrivateRoute = ({ component, ...rest }) => (
+    <Route {...rest} component={UserIsAuthenticated(component)}/>
+);
 
 class RootComponents extends Component{
     render(){
         return (
             <ConnectedRouter history={this.props.history}>
-                    <Route exact path="/" component={UserIsAuthenticated(AppContainer)}/>
-                    <Route path="/battles/:id" component={UserIsAuthenticated(BattleContainer)}/>
                 <AppLayout>
+                    <PrivateRoute exact path="/" component={AppContainer}/>
+                    <PrivateRoute path="/battles/:id" component={BattleContainer}/>
                     <Route path="/login" component={UserIsNotAuthenticated(Login)}/>
                 </AppLayout>
             </ConnectedRouter>
