@@ -4,13 +4,9 @@ import { ConnectedRouter } from 'react-router-redux';
 import { UserIsAuthenticated, UserIsNotAuthenticated} from './helpers/auth';
 import AppContainer from './containers/App/AppContainer';
 import AppLayout from './components/AppLayout';
+import Login from './components/Login';
 import BattleContainer from './containers/Battle/BattleContainer';
 
-const Login = () => {
-    return(
-        <div>Please log in to battle</div>
-    );
-}
 
 class RootComponents extends Component{
     render(){
