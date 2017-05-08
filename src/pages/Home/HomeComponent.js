@@ -1,6 +1,6 @@
 import React from 'react';
 import BattleList from 'components/BattleList';
-import CreateBattle from 'modals/CreateBattle/CreateBattle';
+import CreateBattle from 'modals/CreateBattle';
 
 const HomeComponent = (props) => (
 	<div>
