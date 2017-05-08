@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { firebaseConnect, pathToJS, dataToJS } from 'react-redux-firebase';
+import { firebaseConnect, pathToJS, populatedDataToJS } from 'react-redux-firebase';
 import { battlePropTypes, roundPropTypes } from 'helpers/propTypes';
 import { getOpponents, getCurrentRound } from 'helpers/battle';
 import { changeUserStatus } from 'actions/battle';
@@ -23,14 +23,16 @@ BattleContainer.propTypes = {
 	round: roundPropTypes
 }
 
+const populates = [{child: 'userProfiles', root: 'users'}];
+
 const firebaseWrapper = firebaseConnect(
   ({match}) => {
-      return [{ path: `battles/${match.params.id}` }]
+      return [{ path: `battles/${match.params.id}`, populates }]
 })(BattleContainer);
 
 function mapStateToProps({ firebase }, ownProps) {
     const battlePath = `battles/${ownProps.match.params.id}`;
-    const battle = dataToJS(firebase, battlePath);
+    const battle = populatedDataToJS(firebase, battlePath, populates);
     const auth = pathToJS(firebase, 'auth');
     if(battle){
         return {

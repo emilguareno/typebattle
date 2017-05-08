@@ -13,6 +13,13 @@ export function getBattleSchema(id, name, users){
 				text: "Cervantes respectfully dedicates his novel to the Duke of Bejar and asks him to protect the novel from ignorant and unjust criticism."
 			}
 		],
+		//Adding user ID's to populate profiles
+		userProfiles: users.reduce((acc, userId) => {
+			return acc = {
+				...acc,
+				[userId]: true
+			}
+		}, {}),
 		users: users.reduce((acc, userId) => {
 			return acc = {
 				...acc,
