@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { firebaseConnect, pathToJS } from 'react-redux-firebase';
-import Nav from 'components/Nav/Nav';
+import Nav from 'components/Nav';
 
 function mapStateToProps({firebase}) {
     return {
@@ -10,6 +10,4 @@ function mapStateToProps({firebase}) {
 
 const fbWrapper = firebaseConnect()(Nav);
 
-const Header = connect(mapStateToProps)(fbWrapper);
-
-export default Header;
+export default connect(mapStateToProps)(fbWrapper);

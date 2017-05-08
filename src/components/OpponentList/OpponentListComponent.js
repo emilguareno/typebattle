@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { battlePropTypes, userPropTypes } from 'helpers/propTypes';
 import Opponent from './Opponent';
 
-function OpponentList(props){
+function OpponentListComponent(props){
 	return (
 		<div>
 	 		{props.opponents.map((opponent) => {
@@ -14,9 +14,9 @@ function OpponentList(props){
 	)
 }
 
-OpponentList.propTypes = {
+OpponentListComponent.propTypes = {
 	battle: battlePropTypes,
 	opponents: PropTypes.arrayOf(userPropTypes)
 };
 
-export default OpponentList;
+export default OpponentListComponent;

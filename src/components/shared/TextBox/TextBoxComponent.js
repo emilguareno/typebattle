@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Form, TextArea } from 'semantic-ui-react';
 import './TextBox.css';
-class TextBox extends Component {
+class TextBoxComponent extends Component {
     constructor(props) {
         super(props);
         this.processInput = this.processInput.bind(this);
@@ -66,11 +66,11 @@ class TextBox extends Component {
     }
 }
 
-TextBox.propTypes = {
+TextBoxComponent.propTypes = {
     currentIndex: PropTypes.number.isRequired,
     onCorrectWord: PropTypes.func.isRequired,
     onWordDeleted: PropTypes.func.isRequired,
     text: PropTypes.arrayOf(PropTypes.string).isRequired
 }
 
-export default TextBox;
+export default TextBoxComponent;

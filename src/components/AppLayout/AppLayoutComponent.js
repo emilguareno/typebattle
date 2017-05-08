@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from 'containers/Header/Header';
+import Header from 'components/Header';
 
 function AppLayoutComponent(props) {
 	return (
