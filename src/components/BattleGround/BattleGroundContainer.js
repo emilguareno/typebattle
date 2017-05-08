@@ -1,15 +1,25 @@
+import React from 'react';
 import { firebaseConnect, pathToJS, populatedDataToJS } from 'react-redux-firebase';
 import { getOpponents, getCurrentRound } from 'helpers/battle';
 import { changeUserStatus } from 'actions/battle';
 import { connect } from 'react-redux';
+import Loader from 'components/shared/Loader';
 import BattleGroundComponent from './BattleGroundComponent';
+
+const BattleGroundContainer = (props) => (
+    props.battle ? (
+        <BattleGroundComponent {...props} />
+    ) : (
+        <Loader />
+    )
+)
 
 const populates = [{child: 'userProfiles', root: 'users'}];
 
 const firebaseWrapper = firebaseConnect(
   ({match}) => {
       return [{ path: `battles/${match.params.id}`, populates }]
-})(BattleGroundComponent);
+})(BattleGroundContainer);
 
 function mapStateToProps({ firebase }, ownProps) {
     const battlePath = `battles/${ownProps.match.params.id}`;
