@@ -3,15 +3,6 @@ import PropTypes from 'prop-types';
 import { Button, Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-function onSignInClicked(props){
-    return () => (
-        props.firebase.login({
-            provider: 'google',
-            type: 'popup'
-        })
-    );
-}
-
 function onSignOutClicked(props){
     return () => (
         props.firebase.logout()
@@ -27,9 +18,7 @@ const NavComponent = (props) => (
 
       <Menu.Menu position='right'>
         <Menu.Item>
-          {!props.auth ? (
-              <Button primary onClick={onSignInClicked(props)}>Log In</Button>
-          ) : (
+          {props.auth && (
               <div> 
                 <span>Hello {props.auth.displayName} </span>
 
