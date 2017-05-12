@@ -2,7 +2,7 @@ import React from 'react';
 import { Dimmer, Loader } from 'semantic-ui-react'
 
 const LoaderComponent = () => (
-	<Dimmer active>
+	<Dimmer active inverted>
 		<Loader />
 	</Dimmer>
 );
