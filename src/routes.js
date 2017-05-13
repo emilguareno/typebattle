@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router';
+import { Route, Switch } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
 import { UserIsAuthenticated, UserIsNotAuthenticated} from './helpers/auth';
 import Home from './pages/Home';
@@ -15,11 +15,16 @@ class RootComponents extends Component{
     render(){
         return (
             <ConnectedRouter history={this.props.history}>
-                <AppLayout>
-                    <PrivateRoute exact path="/" component={Home}/>
-                    <PrivateRoute path="/battles/:id" component={Battle}/>
-                    <Route path="/login" component={UserIsNotAuthenticated(Login)}/>
-                </AppLayout>
+                <div>
+                    <AppLayout>
+                        <Switch>
+                            <PrivateRoute exact path="/" component={Home}/>
+                            <PrivateRoute path="/battles/:id" component={Battle}/>
+                            <PrivateRoute path="/battles/:id/:round" component={Battle}/>
+                        </Switch>
+                    </AppLayout>
+                    <Route exact path="/login" component={UserIsNotAuthenticated(Login)}/>
+                </div>
             </ConnectedRouter>
         )
     }
