@@ -17,12 +17,12 @@ class TextBoxComponent extends Component {
         return text.split(' ').length - 1;
     }
     lastWordCorrect() {
-        let currentWord = this.state.input.split(' ')[this.props.currentIndex];
+        const currentWord = this.state.input.split(' ')[this.props.currentIndex];
         return this.props.text[this.props.currentIndex] === currentWord;
     }
     processInput(e) {
         this.setState({ input: e.target.value });
-        let spaces = this.calculateSpaces(e.target.value);
+        const spaces = this.calculateSpaces(e.target.value);
         if (spaces > this.props.currentIndex) {
             if (this.lastWordCorrect()) {
                 this.props.onCorrectWord();
