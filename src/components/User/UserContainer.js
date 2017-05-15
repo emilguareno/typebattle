@@ -10,9 +10,8 @@ const mapStateToProps = ({ user }) => {
     };
 };
 
-let props;
 const mapDispatchToProps = (dispatch, ownProps) => {
-    props = ownProps;
+    listenForStateChange(ownProps);
     return {
         onIncrementUserWord: () => {
             dispatch(incrementUserWord());
@@ -33,17 +32,19 @@ export default connect(
  * ui to be updated immediately. Below, we register to the Redux state changes and update the 
  * firebase word index for the user whenever the state changes
  */
-let currentValue;
-function onStateChange() {
-    let previousValue = currentValue;
-    const state = store.getState();
-    currentValue = state.user.wordIndex;
-    if (typeof previousValue !== 'undefined' && previousValue !== currentValue) {
-        const battleId = props.battle.id;
-        const { uid } = props.auth;
-        const firebase = getFirebase();
-        firebase.set(`battles/${battleId}/users/${uid}/wordIndex`, currentValue);
+function listenForStateChange(props) {
+    let currentValue;
+    function onStateChange() {
+        let previousValue = currentValue;
+        const state = store.getState();
+        currentValue = state.user.wordIndex;
+        if (typeof previousValue !== 'undefined' && previousValue !== currentValue) {
+            const battleId = props.battle.id;
+            const { uid } = props.auth;
+            const firebase = getFirebase();
+            firebase.set(`battles/${battleId}/users/${uid}/wordIndex`, currentValue);
+        }
     }
-}
 
-store.subscribe(onStateChange);
+    store.subscribe(onStateChange);
+}
