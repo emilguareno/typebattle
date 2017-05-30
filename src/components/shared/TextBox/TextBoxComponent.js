@@ -20,9 +20,14 @@ class TextBoxComponent extends Component {
         const currentWord = this.state.input.split(' ')[this.props.currentIndex];
         return this.props.text[this.props.currentIndex] === currentWord;
     }
+    multipleWordsDeleted(spaces) {
+        return (this.props.currentIndex - spaces) > 1;
+    }
     processInput(e) {
-        this.setState({ input: e.target.value });
         const spaces = this.calculateSpaces(e.target.value);
+        if(this.multipleWordsDeleted(spaces)){
+            return;
+        }
         if (spaces > this.props.currentIndex) {
             if (this.lastWordCorrect()) {
                 this.props.onCorrectWord();
@@ -30,6 +35,7 @@ class TextBoxComponent extends Component {
         } else if (spaces < this.props.currentIndex) {
             this.props.onWordDeleted();
         }
+        this.setState({ input: e.target.value });
     }
     preventPaste(e){
         e.preventDefault();
@@ -54,6 +60,7 @@ class TextBoxComponent extends Component {
                     onPaste={this.preventPaste}
                     onKeyDown={this.checkIfDisabledKey}
                     onSelect={this.preventSelect}
+                    value={this.state.input}
                     className="form-control"
                     rows="3"
                     autoComplete="off"
